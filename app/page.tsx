@@ -3,6 +3,7 @@
 import { Phone, MapPin, Clock, Users, Star, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
 
 export default function Home() {
   const services = [
@@ -55,9 +56,11 @@ export default function Home() {
                 <p className="text-sm text-gray-600">Klinika Fizjoterapii</p>
               </div>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white hidden sm:flex">
-              <Phone className="w-4 h-4 mr-2" />
-              Umów wizytę
+            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white hidden sm:flex">
+              <a href="tel:+48504658870">
+                <Phone className="w-4 h-4 mr-2" />
+                Umów wizytę
+              </a>
             </Button>
           </div>
         </div>
@@ -82,9 +85,11 @@ export default function Home() {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Umów się na wizytę już dziś
+                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+                  <a href="tel:+48504658870">
+                    <Phone className="w-5 h-5 mr-2" />
+                    Umów się na wizytę już dziś
+                  </a>
                 </Button>
                 <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
                   Dowiedz się więcej o terminach
@@ -196,10 +201,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
-              <img 
-                src="https://images.pexels.com/photos/5327921/pexels-photo-5327921.jpeg" 
+              <Image 
+                src="/IMG_2781.jpg" 
                 alt="Andrzej Krzywonos - fizjoterapeuta"
+                width={600}
+                height={600}
                 className="w-full h-full object-cover"
+                priority
               />
             </div>
 
@@ -264,7 +272,12 @@ export default function Home() {
                   <Phone className="w-6 h-6 text-blue-300 mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-semibold">Rezerwacje</div>
-                    <div className="text-blue-100">Wyłącznie telefoniczne</div>
+                    <div className="text-blue-100">
+                      <a href="tel:+48504658870" className="hover:text-white transition-colors">
+                        +48 504 658 870
+                      </a>
+                    </div>
+                    <div className="text-blue-100 text-sm">Wyłącznie telefoniczne</div>
                   </div>
                 </div>
 
@@ -354,6 +367,22 @@ export default function Home() {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2024 REHAND Klinika Fizjoterapii. Andrzej Krzywonos - Rybnik</p>
+            
+            <div className="flex items-center justify-center gap-2 mt-4 text-gray-400 text-sm">
+              <span>Developed by</span>
+              <a
+                href="https://www.swtlabs.pl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-70 hover:opacity-100 transition-opacity hover:scale-105 transform transition-transform"
+              >
+                <img
+                  src="/swtlabslogo.png"
+                  alt="SWTLabs"
+                  className="h-6 w-auto"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </footer>
